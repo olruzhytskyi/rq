@@ -53,7 +53,7 @@ class Queue(object):
         if not queue_key.startswith(prefix):
             raise ValueError('Not a valid RQ queue key: {0}'.format(queue_key))
         name = queue_key[len(prefix):]
-        return cls(name, connection=connection)
+        return cls(name, connection=connection, namespace=namespace)
 
     def __init__(self, name='default', default_timeout=None, connection=None,
                  async=True, job_class=None, namespace=None):
